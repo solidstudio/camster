@@ -63,7 +63,8 @@ const Camera = () => {
         <div ref={videoWrapperRef}><Webcam videoConstraints={videoConstraints} ref={videoRef} onUserMedia={videoStarted} style={{position: 'absolute'}} /></div>
         <div><canvas id="canvasOutput" ref={canvasRef} style={{position: 'absolute'}}></canvas></div>
       </div>
-      <div style={{position: 'relative'}}><Link to="/" reloadDocument>Back to settings</Link></div>
+      {/* <div style={{position: 'relative'}}><Link to="/" reloadDocument>Back to settings</Link></div> */}
+      <div style={{position: 'relative'}}><a href="/" >Back to settings</a></div>
     </div>
   );
 }
