@@ -1,5 +1,4 @@
-import React, {useRef, useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useRef} from "react";
 import { useGlobalContext } from "./GlobalContext";
 import { isMobile } from 'react-device-detect';
 import Webcam from "react-webcam";
@@ -23,7 +22,6 @@ const Camera = () => {
 
   const videoWrapperRef = React.useRef<HTMLDivElement | null>(null);
   const videoRef = React.useRef<Webcam>(null);
-  const imgRef = React.useRef<HTMLImageElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const videoConstraints = getVideoConstraints();
