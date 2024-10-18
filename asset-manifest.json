@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/camster/static/css/main.e6c13ad2.css",
+    "main.js": "/camster/static/js/main.72f13e31.js",
+    "static/js/703.cecd98fc.chunk.js": "/camster/static/js/703.cecd98fc.chunk.js",
+    "static/js/453.92c3c3dc.chunk.js": "/camster/static/js/453.92c3c3dc.chunk.js",
+    "static/js/956.bbfcfe6f.chunk.js": "/camster/static/js/956.bbfcfe6f.chunk.js",
+    "index.html": "/camster/index.html",
+    "main.e6c13ad2.css.map": "/camster/static/css/main.e6c13ad2.css.map",
+    "main.72f13e31.js.map": "/camster/static/js/main.72f13e31.js.map",
+    "703.cecd98fc.chunk.js.map": "/camster/static/js/703.cecd98fc.chunk.js.map",
+    "453.92c3c3dc.chunk.js.map": "/camster/static/js/453.92c3c3dc.chunk.js.map",
+    "956.bbfcfe6f.chunk.js.map": "/camster/static/js/956.bbfcfe6f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.72f13e31.js"
+  ]
+}
