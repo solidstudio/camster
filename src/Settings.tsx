@@ -6,8 +6,11 @@ import { useGlobalContext } from "./GlobalContext";
 const Settings = () => {
   const navigate = useNavigate();
 
+  const handleDebugClick = () => setDebugChecked(!debugChecked);
+
   const [documentWidthValue, setDocumentWidthValue] = useState(DocPresets.passport.documentWidth);
   const [documentHeightValue, setDocumentHeightValue] = useState(DocPresets.passport.documentHeight);
+  const [debugChecked, setDebugChecked] = useState(false);
 
   const [globalData, setGlobalData] = useGlobalContext();
 
@@ -20,7 +23,8 @@ const Settings = () => {
     setGlobalData({
       config: {
         documentWidth: documentWidthValue,
-        documentHeight: documentHeightValue
+        documentHeight: documentHeightValue,
+        debug: debugChecked
       }
     });
     navigate('/camera');
@@ -62,6 +66,11 @@ const Settings = () => {
       <div>
         <label htmlFor="cornerRadius">Corner radius:</label>
         <input type="number" id="cornerRadius" name="cornerRadius" min="1" max="100" />%
+      </div>
+
+      <div>
+        <label htmlFor="debug">debug:</label>
+        <input type="checkbox" id="debug" name="debug" onClick={handleDebugClick} checked={debugChecked} />
       </div>
 
       <button onClick={launchCamera}>
