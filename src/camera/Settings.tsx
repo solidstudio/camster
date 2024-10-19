@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DocPresets from "./docPresets"
-import { useGlobalContext } from "./GlobalContext";
+import { useGlobalContext } from "../GlobalContext";
 
 const Settings = () => {
   const navigate = useNavigate();

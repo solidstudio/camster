@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import { useGlobalContext } from "./GlobalContext";
+import { useGlobalContext } from "../GlobalContext";
 import { isMobile } from 'react-device-detect';
 import Webcam from "react-webcam";
 import DocPresets from "./docPresets"
