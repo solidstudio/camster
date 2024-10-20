@@ -25,9 +25,8 @@ export const setupCanvasSize = (videoRef: any, canvasRef: any, config: any) => {
     canvas.height = video.videoHeight;
 }
 
-export const renderVideoToCanvas = (videoRef: any, canvasRef: any, config: any, points: any) => {
+export const renderVideoToCanvas = (videoRef: any, canvasRef: any, config: any, lastDetectedPoints: any) => {
     const canv = videoRef?.current?.getCanvas();
-
     if (canv) {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d", { willReadFrequently: true });
@@ -48,9 +47,9 @@ export const renderVideoToCanvas = (videoRef: any, canvasRef: any, config: any, 
         const white = [255, 255, 255, 255]; // white
         cv.rectangle(img, topLeftPoints, bottomRightPoints, white, 2);
 
-        if (points && points.lastDetectedPoints && config.debug) {
+        if (lastDetectedPoints && config.debug) {
             const colorDebugRed = [255, 0, 0, 255]; // red
-            cv.rectangle(img, points.lastDetectedPoints[0], points.lastDetectedPoints[2], colorDebugRed, 2);
+            cv.rectangle(img, lastDetectedPoints[0], lastDetectedPoints[2], colorDebugRed, 2);
         }
 
         cv.imshow(canvasRef.current, img);

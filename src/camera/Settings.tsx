@@ -21,10 +21,12 @@ const Settings = () => {
 
   const launchCamera = () => {
     setGlobalData({
-      config: {
-        documentWidth: documentWidthValue,
-        documentHeight: documentHeightValue,
-        debug: debugChecked
+      autoCapture: {
+        config: {
+          documentWidth: documentWidthValue,
+          documentHeight: documentHeightValue,
+          debug: debugChecked
+        }
       }
     });
     navigate('/camera');
@@ -70,7 +72,7 @@ const Settings = () => {
 
       <div>
         <label htmlFor="debug">debug:</label>
-        <input type="checkbox" id="debug" name="debug" onClick={handleDebugClick} checked={debugChecked} />
+        <input type="checkbox" id="debug" name="debug" onClick={handleDebugClick} defaultChecked={debugChecked} />
       </div>
 
       <button onClick={launchCamera}>

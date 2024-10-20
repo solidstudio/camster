@@ -1,24 +1,12 @@
 import React, {useRef} from "react";
 import { useGlobalContext } from "../GlobalContext";
-import { isMobile } from 'react-device-detect';
 import Webcam from "react-webcam";
-import DocPresets from "./docPresets"
 import { getVideoConstraints, setupCanvasSize, renderVideoToCanvas, detectDocument } from "./CameraUtils";
 import { animationManager } from "./AnimationManger";
 
-const Camera = () => {
+const Camera = (config: any) => {
 
-  let [globalData, setGlobalData] = useGlobalContext();
-  if (!globalData) {
-    globalData = {
-      config: DocPresets.test
-    }
-  } else if (!globalData.config) {
-    globalData.config = DocPresets.test;
-  }
-  console.log('globalData', globalData);
-
-  console.log('isMobile', isMobile);
+  const [globalData, setGlobalData] = useGlobalContext();
 
   const videoWrapperRef = React.useRef<HTMLDivElement | null>(null);
   const videoRef = React.useRef<Webcam>(null);
@@ -27,22 +15,20 @@ const Camera = () => {
   const videoConstraints = getVideoConstraints();
 
   const initialiseCanvas = () => {
-    setupCanvasSize(videoRef, canvasRef, globalData.config);
+    setupCanvasSize(videoRef, canvasRef, config);
   };
 
   const renderVideo = () => {
-    renderVideoToCanvas(videoRef, canvasRef, globalData.config, globalData.autoCapture);
+    renderVideoToCanvas(videoRef, canvasRef, config, globalData.autoCapture.lastDetectedPoints);
   };
 
   const runDetection = () => {
-    detectDocument(videoRef, canvasRef, globalData.config, updatePointDetected);
+    detectDocument(videoRef, canvasRef, config, updatePointDetected);
   };
 
   const updatePointDetected = (points: any) => {
     const globalDataUpdate = globalData;
-    globalDataUpdate.autoCapture = {
-      lastDetectedPoints: points
-    };
+    globalDataUpdate.autoCapture.lastDetectedPoints = points;
     setGlobalData(globalDataUpdate);
   };
 
